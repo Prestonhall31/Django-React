@@ -6,7 +6,7 @@ from .models import Room
 # Create your views here.
 
 # Creating an API view, rather than an HTTP view
-class RoomView(generics.CreateAPIView):
+class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
