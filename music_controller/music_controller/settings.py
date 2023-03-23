@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig', # added app to the file from .apps/app.py
     'rest_framework', # 
+    'frontend.apps.FrontendConfig', # added React frontend
 ]
 
 MIDDLEWARE = [
