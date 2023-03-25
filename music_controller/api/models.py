@@ -18,7 +18,7 @@ def generate_unique_code():
 # Create your models here.
 # Creating a class Room since the app that I am building is a group of people in a room listening to music
 class Room(models.Model):
-    code = models.CharField(max_length=8, default="", unique=True)
+    code = models.CharField(max_length=8, default=generate_unique_code, unique=True)
     host = models.CharField(max_length=50, unique=True)
     guest_can_pause = models.BooleanField(null=False, default=False)
     votes_to_skip = models.IntegerField(null=False, default=1)
