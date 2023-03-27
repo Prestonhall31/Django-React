@@ -20,4 +20,3 @@ export default class App extends Component {
 
 const appDiv = document.getElementById("app");
 render(<App />, appDiv);
-
