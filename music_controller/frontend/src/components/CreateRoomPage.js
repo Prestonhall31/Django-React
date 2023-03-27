@@ -5,10 +5,11 @@ import Typography  from "@material-ui/core/Typography"
 import TestField  from "@material-ui/core/TextField"
 import FormHelperText from "@material-ui/core/FormHelperText"
 import FormControl from "@material-ui/core/FormControl"
-import { Link } from "react-router-dom"
+import { Form, Link } from "react-router-dom"
 import Radio from "@material-ui/core/Radio"
 import RadioGroup from "@material-ui/core/RadioGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
+import { FormLabel } from "@material-ui/core"
 
 
 export default class CreateRoomPage extends Component {
@@ -24,6 +25,53 @@ export default class CreateRoomPage extends Component {
                 <Typography component="h4" variant="h4">
                     Create a Room
                 </Typography>
+            </Grid>
+            <Grid item xs={12} align="center">
+                <FormControl component="fieldset">
+                    <FormHelperText>
+                        <div align="center">Guest Control of Playback state</div>
+                    </FormHelperText>
+                    <RadioGroup row defaultValue="true">
+                        <FormControlLabel 
+                            value="true" 
+                            control={<Radio color="primary" />}
+                            label="Play/Pause"
+                            labelPlacement="bottom"
+                        />
+                        <FormControlLabel 
+                            value="false" 
+                            control={<Radio color="secondary" />}
+                            label="No Control"
+                            labelPlacement="bottom"
+                        />
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
+            <Grid item xs={12} align="center">
+                <FormControl>
+                    <TestField 
+                        required={true} 
+                        type="number" 
+                        defaultValue={this.defaultVotes}
+                        inputProps={{
+                            min: 1,
+                            style: { textAlign: "center" },
+                        }}
+                    />
+                    <FormHelperText>
+                        <div align="center">Votes Required to Skip Song</div>
+                    </FormHelperText>
+                </FormControl>
+            </Grid>
+            <Grid item xs={12} align="center">
+                <Button color="primary" variant="contained">
+                    Create A Room
+                </Button>
+            </Grid>
+            <Grid item xs={12} align="center">
+                <Button color="secondary" variant="contained" to="/" component={Link}>
+                    Back
+                </Button>
             </Grid>
         </Grid>; 
     }
