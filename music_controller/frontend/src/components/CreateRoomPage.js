@@ -3,7 +3,6 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import { Link } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
@@ -38,6 +37,7 @@ export default class CreateRoomPage extends Component {
   }
 
   handleRoomButtonPressed() {
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,9 +46,11 @@ export default class CreateRoomPage extends Component {
         guest_can_pause: this.state.guestCanPause,
       }),
     };
+
     fetch("/api/create-room", requestOptions)
       .then((response) => response.json())
       .then((data) => this.props.history.push("/room/" + data.code));
+      
   }
 
   render() {
